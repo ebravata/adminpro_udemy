@@ -1,0 +1,16 @@
+<label>{{ leyenda }}</label>
+<div class="input-group">
+    <br>
+    <span class="input-group-btn">
+        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(-5)">
+            <i class="mdi mdi-minus"></i>
+        </button>
+    </span>
+    <input type="number" class="form-control" aria-describedby="button-addon3" #txtProgress name="porcentaje" [(ngModel)]="porcentaje" (ngModelChange)="siCambia( $event )" min="0" max="100">
+    <span class="input-group-btn">
+        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(+5)">
+            <i class="mdi mdi-plus"></i>
+        </button>
+    </span>
+
+</div>

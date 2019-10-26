@@ -6,14 +6,14 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 
 
 const pagesRoutes: Routes = [
-    { 
-        path: '', 
+    {
+        path: '',
         component: PagesComponent,
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'progress', component: ProgressComponent },
             { path: 'graficas1', component: Graficas1Component },
-            { path: '', pathMatch:'full', redirectTo: '/dashboard' },
+            { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
         ] },
 ];
 
