@@ -17,8 +17,8 @@ const appRoutes: Routes = [
     //         { path: 'graficas1', component: Graficas1Component },
     //         { path: '', pathMatch:'full', redirectTo: '/dashboard' },
     //     ] },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent, data:{ titulo: 'Login'} },
+    { path: 'register', component: RegisterComponent, data:{ titulo: 'Registro'} },
     { path: '**', component: NopagefoundComponent }
 ];
 

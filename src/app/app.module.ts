@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // temporal
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
@@ -25,6 +25,7 @@ import { RegisterComponent } from './login/register.component';
 
 // Modulos hijos
 import { PagesModule } from './pages/pages.module';
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     APP_ROUTING,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
