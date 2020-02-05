@@ -26,7 +26,7 @@ export class BreadcrumsComponent implements OnInit {
                                       }
 
                                       this.meta.updateTag( metaTag );
-                                      console.log(data)
+                                      // console.log(data)
                                     });
 
     

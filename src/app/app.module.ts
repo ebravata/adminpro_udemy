@@ -26,12 +26,14 @@ import { RegisterComponent } from './login/register.component';
 // Modulos hijos
 import { PagesModule } from './pages/pages.module';
 import { ServiceModule } from './services/service.module';
+// import { ImagenesPipe } from './pipes/imagenes.pipe'; se quita de aqui para ponerlo en un modulo exclusivo
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
+    // ImagenesPipe,
     // IncrementadorComponent
     // NopagefoundComponent,
     // DashboardComponent,
