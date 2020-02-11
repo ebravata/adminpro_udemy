@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
     }
     
     if (archivo.type.indexOf ('image') < 0){
-      Swal.fire('Solo Imagenes','Solo se aceptan imagenes','error');
+      Swal.fire('Solo Imagenes', 'Solo se aceptan imagenes', 'error');
       this.archivoSubir = null;
       return;
     }
@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
 
   cambiarImagen(){
 
-    this.usuarioServ.actualizarImagen(this.archivoSubir, this.usuario._id)
+    this.usuarioServ.actualizarImagen(this.archivoSubir, 'usuarios', this.usuario._id);
 
 
   }

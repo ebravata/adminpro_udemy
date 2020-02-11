@@ -50,7 +50,7 @@ export class UsuarioService {
 
     return this.http.post( url, usuario)
       .pipe(map( (resp: any) => {
-          
+
         // si la 'resp' fuera un error nos mandaria un 'catch' por lo que no entraria aqui
           Swal.fire('Aviso','El usuario se creó correctamente','success'); 
           return resp.usuario;
@@ -68,9 +68,13 @@ export class UsuarioService {
     return this.http.put( url, usuario)
       .pipe( map ( (resp: any) =>{
 
-        Swal.fire('Aviso', 'El usuario se actualizó correctamente','success'); 
-        this.guardarStorage( resp.usuario._id, this.token, resp.usuario );
+        if ( usuario._id === this.usuario._id ){
 
+          this.guardarStorage( resp.usuario._id, this.token, resp.usuario );
+
+        }
+
+        Swal.fire('Aviso', 'El usuario se actualizó correctamente','success'); 
         return true;
 
       }));
@@ -132,9 +136,9 @@ export class UsuarioService {
     this.router.navigateByUrl('/login');
   }
 
-  actualizarImagen( archivo: File, id: string){
+  actualizarImagen( archivo: File, tipo: string, id: string){
 
-    this._subirArcserv.subirArchivo(archivo, 'usuarios', id)
+    this._subirArcserv.subirArchivo(archivo, tipo, id)
       .then( (resp: any) =>{
         // console.log(resp);
 
@@ -143,8 +147,44 @@ export class UsuarioService {
         this.guardarStorage( id, this.token, this.usuario );
 
       })
-      .catch( resp => {
-        console.log(resp);
+      .catch( err => {
+        console.log(err);
       })
+  }
+
+  cargarUsuarios(desde: number ){
+
+    let url = URL_SERVIDOR + '/usuario?desde=' + desde;
+
+    return this.http.get( url );
+
+  }
+
+  buscarUsuarios( termino: string){
+
+    let url = URL_SERVIDOR + '/busqueda/coleccion/usuarios/' + termino;
+
+    return this.http.get ( url )
+      .pipe( map ( (resp: any) => resp.usuarios ));
+  }
+
+  borrarUsuario( id: string ){
+
+    let url = URL_SERVIDOR + '/usuario/' + id;
+    url += '?token=' + this.token;
+
+    return this.http.delete( url )
+          .pipe( map( resp => {
+            
+            Swal.fire(
+              'Eliminado!',
+              'Usuario Eliminado',
+              'success'
+            );
+
+            console.log(resp);
+            return true;
+
+          }));
   }
 }
