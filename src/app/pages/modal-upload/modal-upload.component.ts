@@ -14,7 +14,7 @@ export class ModalUploadComponent implements OnInit {
 
   archivoSubir: File;
   imagenTemp: string | ArrayBuffer;
-  @ViewChild('inputFile') myInputVariable: ElementRef;
+  @ViewChild('inputFile', {static: false}) myInputVariable: ElementRef;
 
 
   constructor( private _subirArchivoServ: SubirArchivoService,

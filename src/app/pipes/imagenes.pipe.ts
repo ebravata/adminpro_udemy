@@ -6,7 +6,7 @@ import { URL_SERVIDOR } from '../config/config';
 })
 export class ImagenesPipe implements PipeTransform {
 
-  transform(img: string, tipo: string = 'usuarios') {
+  transform(img: string, tipo: string ) {
 
     let url = URL_SERVIDOR + '/img';
 

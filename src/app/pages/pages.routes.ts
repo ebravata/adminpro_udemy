@@ -8,9 +8,12 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
 
 // se importa el Guard para proteger las rutas de 'pages'
 import { LoginGuardGuard } from '../services/services.index';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 
 const pagesRoutes: Routes = [
@@ -29,6 +32,9 @@ const pagesRoutes: Routes = [
 
             //Rutas de mantenimiento
             { path: 'usuarios', component: UsuariosComponent, data:{ titulo: 'Mantenimiento de usuario'}  },
+            { path: 'hospitales', component: HospitalesComponent, data:{ titulo: 'Mantenimiento de hospital'}  },
+            { path: 'medicos', component: MedicosComponent, data:{ titulo: 'Mantenimiento de Médicos'}  },
+            { path: 'medico/:id', component: MedicoComponent, data:{ titulo: 'Datos del Médico'}  },
             { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
         ] },
 ];

@@ -114,7 +114,7 @@ export class UsuariosComponent implements OnInit {
               console.log(borrado)
             });
       }
-    })
+    });
   }
 
   guardarUsuario( usuario: Usuario ){
