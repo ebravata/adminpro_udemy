@@ -9,6 +9,7 @@ import { BreadcrumsComponent } from './breadcrumbs/breadcrums.component';
 import { HeaderComponent } from './header/header.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ModalUploadComponent } from '../pages/modal-upload/modal-upload.component';
 
 
 
@@ -23,13 +24,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
         BreadcrumsComponent,
         HeaderComponent,
         NopagefoundComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalUploadComponent
     ],
     exports:[
         BreadcrumsComponent,
         HeaderComponent,
         NopagefoundComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalUploadComponent
     ]
 })
 

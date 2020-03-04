@@ -12,8 +12,12 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 
 // se importa el Guard para proteger las rutas de 'pages'
 import { LoginGuardGuard } from '../services/services.index';
+import { AdminGuard } from '../services/services.index'; // proteger acceso a usuarios
+
+
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 const pagesRoutes: Routes = [
@@ -26,12 +30,18 @@ const pagesRoutes: Routes = [
             { path: 'progress', component: ProgressComponent, data:{ titulo: 'Progress'}  },
             { path: 'graficas1', component: Graficas1Component, data:{ titulo: 'Gráficas'}  },
             { path: 'account-settings', component: AccountSettingsComponent, data:{ titulo: 'Ajustes del tema'}  },
-            { path: 'perfil', component: ProfileComponent, data:{ titulo: 'Perfil de usuario'}  },
-            { path: 'promesas', component: PromesasComponent, data:{ titulo: 'Promeas'}  },
+            { path: 'perfil', component: ProfileComponent, data:{ titulo: 'Perfíl de usuario'}  },
+            { path: 'promesas', component: PromesasComponent, data:{ titulo: 'Promesas'}  },
             { path: 'rxjs', component: RxjsComponent, data:{ titulo: 'RxJs'}  },
+            { path: 'busqueda/:termino', component: BusquedaComponent, data:{ titulo: 'Busqueda en todas las colecciones'}  },
 
             //Rutas de mantenimiento
-            { path: 'usuarios', component: UsuariosComponent, data:{ titulo: 'Mantenimiento de usuario'}  },
+            { 
+                path: 'usuarios', 
+                component: UsuariosComponent,
+                canActivate: [ AdminGuard ],
+                data:{ titulo: 'Mantenimiento de usuario'}  
+            },
             { path: 'hospitales', component: HospitalesComponent, data:{ titulo: 'Mantenimiento de hospital'}  },
             { path: 'medicos', component: MedicosComponent, data:{ titulo: 'Mantenimiento de Médicos'}  },
             { path: 'medico/:id', component: MedicoComponent, data:{ titulo: 'Datos del Médico'}  },

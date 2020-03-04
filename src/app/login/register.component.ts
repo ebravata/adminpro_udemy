@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (!this.forma.value.condiciones){
-      Swal.fire('Importante','Debe aceptar las condiciones','warning');
+      Swal.fire('Importante', 'Debe aceptar las condiciones','warning');
       // console.log('Debe aceptar las condiciones');
       return;
     }
