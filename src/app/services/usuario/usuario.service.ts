@@ -250,6 +250,7 @@ export class UsuarioService {
 
           this.token = resp.token;
           localStorage.setItem('token', this.token); // lo ideal es llamar la funcion guardarStorage();
+          console.log('Token Renovado');
           return true;
 
         }),
@@ -257,7 +258,8 @@ export class UsuarioService {
         catchError( err => {
 
           // console.log(err.error.errors.message);
-          Swal.fire (err.error.mensaje, err.error.errors.message, 'error');
+          this.router.navigate(['/login']);
+          Swal.fire ('Erro al renovar token', 'No fue posible renovar token', 'error');
           return throwError(err.error.message);
 
         }));

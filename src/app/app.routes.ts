@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent, data:{ titulo: 'Login'} },
     { path: 'register', component: RegisterComponent, data:{ titulo: 'Registro'} },
     { 
-        path: 'pages',
+        path: '',
         component: PagesComponent,
         canActivate: [ LoginGuardGuard],
         loadChildren: './pages/pages.module#PagesModule'

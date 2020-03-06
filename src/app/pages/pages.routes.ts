@@ -18,35 +18,34 @@ import { AdminGuard } from '../services/services.index'; // proteger acceso a us
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { VerificaTokenGuard } from '../services/guard/verifica-token.guard';
 
 
 const pagesRoutes: Routes = [
-    {
-        path: '',
-        component: PagesComponent,
-        canActivate: [LoginGuardGuard],
-        children: [
-            { path: 'dashboard', component: DashboardComponent, data:{ titulo: 'Dashboard'} },
-            { path: 'progress', component: ProgressComponent, data:{ titulo: 'Progress'}  },
-            { path: 'graficas1', component: Graficas1Component, data:{ titulo: 'Gráficas'}  },
-            { path: 'account-settings', component: AccountSettingsComponent, data:{ titulo: 'Ajustes del tema'}  },
-            { path: 'perfil', component: ProfileComponent, data:{ titulo: 'Perfíl de usuario'}  },
-            { path: 'promesas', component: PromesasComponent, data:{ titulo: 'Promesas'}  },
-            { path: 'rxjs', component: RxjsComponent, data:{ titulo: 'RxJs'}  },
-            { path: 'busqueda/:termino', component: BusquedaComponent, data:{ titulo: 'Busqueda en todas las colecciones'}  },
+    { 
+        path: 'dashboard', 
+        component: DashboardComponent, 
+        canActivate: [ VerificaTokenGuard],
+        data:{ titulo: 'Dashboard'} },
+    { path: 'progress', component: ProgressComponent, data:{ titulo: 'Progress'}  },
+    { path: 'graficas1', component: Graficas1Component, data:{ titulo: 'Gráficas'}  },
+    { path: 'account-settings', component: AccountSettingsComponent, data:{ titulo: 'Ajustes del tema'}  },
+    { path: 'perfil', component: ProfileComponent, data:{ titulo: 'Perfíl de usuario'}  },
+    { path: 'promesas', component: PromesasComponent, data:{ titulo: 'Promesas'}  },
+    { path: 'rxjs', component: RxjsComponent, data:{ titulo: 'RxJs'}  },
+    { path: 'busqueda/:termino', component: BusquedaComponent, data:{ titulo: 'Busqueda en todas las colecciones'}  },
 
-            //Rutas de mantenimiento
-            { 
-                path: 'usuarios', 
-                component: UsuariosComponent,
-                canActivate: [ AdminGuard ],
-                data:{ titulo: 'Mantenimiento de usuario'}  
-            },
-            { path: 'hospitales', component: HospitalesComponent, data:{ titulo: 'Mantenimiento de hospital'}  },
-            { path: 'medicos', component: MedicosComponent, data:{ titulo: 'Mantenimiento de Médicos'}  },
-            { path: 'medico/:id', component: MedicoComponent, data:{ titulo: 'Datos del Médico'}  },
-            { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
-        ] },
+    //Rutas de mantenimiento
+    { 
+        path: 'usuarios', 
+        component: UsuariosComponent,
+        canActivate: [ AdminGuard ],
+        data:{ titulo: 'Mantenimiento de usuario'}  
+    },
+    { path: 'hospitales', component: HospitalesComponent, data:{ titulo: 'Mantenimiento de hospital'}  },
+    { path: 'medicos', component: MedicosComponent, data:{ titulo: 'Mantenimiento de Médicos'}  },
+    { path: 'medico/:id', component: MedicoComponent, data:{ titulo: 'Datos del Médico'}  },
+    { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes);

@@ -34,7 +34,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PagesComponent, // se vuelve a colocar aca por cambios del lazyload
+    PagesComponent,
     // ImagenesPipe,
     // IncrementadorComponent
     // NopagefoundComponent,
@@ -47,12 +47,12 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
     APP_ROUTING,
-    PagesModule,
+    // PagesModule,
     FormsModule,
     ServiceModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule // se agregó por el lazyload
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,6 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         DashboardComponent,
         Graficas1Component,
         ProgressComponent,
-        // PagesComponent, //se quita por adaptar el lazyload
         IncrementadorComponent,
         GraficoDonaComponent,
         AccountSettingsComponent,
@@ -40,7 +39,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        // ModalUploadComponent,
+        // ModalUploadComponent, se quitaron por el Lazyload y se pasa al share.module
         HospitalesComponent,
         MedicosComponent,
         MedicoComponent,
@@ -50,8 +49,8 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         DashboardComponent,
         Graficas1Component,
         ProgressComponent ,
-        // SharedModule
-        // PagesComponent
+        // SharedModule se quitaron por el Lazyload
+        // PagesComponent se quitaron por el Lazyload
     ],
     imports:[
         CommonModule,
